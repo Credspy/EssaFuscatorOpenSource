@@ -83,7 +83,7 @@ namespace EssaFuscator.Core
 
                 var minifiedVm = nodey.GetRoot().ToFullString();
                 
-                File.WriteAllText("temp/out.lua", minifiedVm);
+//                 File.WriteAllText("temp/out.lua", minifiedVm);
                 
                 error = "Fine";
 
