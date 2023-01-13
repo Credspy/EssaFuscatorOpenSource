@@ -37,14 +37,14 @@ namespace EssaFuscator.CLI
 			if (!session.Item1)
 			{
 				Console.WriteLine("ERR: " + err);
-				var fileName = Path.GetFileNameWithoutExtension(arg[0]);
-			File.WriteAllText("temp/{fileName}.lua", @$"{session.Item2}");
+				var fileName = Path.GetFileNameWithoutExtension(args[0]);
+			File.WriteAllText("temp/" + fileName + ".lua", @$"{session.Item2}");
 			
 			if (isAntiTamper) {
 				Console.WriteLine("Anti Tamper Activating");
-				var scr = File.ReadAllText("temp/out.lua");
+				var scr = File.ReadAllText("temp/" + fileName + ".lua");
 				//$"EssaFuscator_{Obfuscation.EssaFingerprint}", $"{args[1]}"
-				File.WriteAllText("temp/{fileName}.lua", Obfuscator.Encryption.AdvancedAntiTamper.GetLoader(scr, charsets[charsetIndex], charsetLengths[charsetIndex]), Encoding.UTF8);
+				File.WriteAllText("temp/" + fileName + ".lua", Obfuscator.Encryption.AdvancedAntiTamper.GetLoader(scr, charsets[charsetIndex], charsetLengths[charsetIndex]), Encoding.UTF8);
 				return;
 			}
 
